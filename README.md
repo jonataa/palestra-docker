@@ -1,10 +1,15 @@
 # Docker for PHP Developers
 Esse exemplo foi criado para exemplificar os conceitos apresentados durante a palestra "Docker for PHP Developers".
 
+## Slides
+* link em breve...
+
 ## Instalando o Docker
+> WIP
+
 ## Hello World
 
-Uma instalado o docker, execute o seguinte comando:
+Uma vez instalado o docker, execute o seguinte comando:
 ```
 docker run hello-world
 ```
@@ -33,10 +38,10 @@ For more examples and ideas, visit:
  https://docs.docker.com/userguide/
 ```
 
-## Usando o Docker com PHP 7 (sem Dockerfile)
+## Usando o PHP 7 sem Dockerfile
 
 ```
-# cli
+# CLI
 docker run -d php:7 php -v
 # interactive shell
 docker run -d -it php:7
@@ -44,7 +49,7 @@ docker run -d -it php:7
 docker run -d -p 9000:9000 -v $PWD:/usr/src/myapp php:7 php -S 0.0.0.0:9000 -t /usr/src/myapp
 ```
 
-## Usando o Docker com PHP 7 (com Dockerfile)
+## Usando o PHP 7 com Dockerfile
 
 Dockerfile
 ```
@@ -55,6 +60,12 @@ COPY . /var/www/html
 ```
 docker build -t yourimage .
 docker run yourimage
+```
+
+## Rodando o MySQL
+
+```
+docker run --name db -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql
 ```
 
 ## Docker Compose
