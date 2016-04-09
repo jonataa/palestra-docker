@@ -1,12 +1,14 @@
-web:
-  build: .
-  ports:
-    - "80:80"
-  volumes:
-    - ./:/usr/src/myapp
-  links:
-    - db
-db:
-  image: mysql
-  environment:
-    - MYSQL_ROOT_PASSWORD=123456
+version: '2'
+services:
+  web:
+    build: .
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/var/www/html
+    links:
+      - db
+  db:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456

@@ -70,5 +70,28 @@ docker run --name db -e MYSQL_ROOT_PASSWORD=123456 -p 3306:3306 -d mysql
 
 ## Docker Compose
 
+docker-compose.yml
+```
+web:
+  build: .
+  ports:
+    - "80:80"
+  volumes:
+    - ./:/usr/src/myapp
+  links:
+    - db
+db:
+  image: mysql
+  environment:
+    - MYSQL_ROOT_PASSWORD=123456
+```
 
+```
+# levantar serviços
+docker-compose up -d
+# visualizar os logs
+docker-compose logs
+# matar processos
+docker-compose kill
+```
 
